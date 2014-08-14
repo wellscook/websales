@@ -3,7 +3,7 @@
 
 
 </style>
-<?php print_r($user); ?>
+<?php //print_r($user); ?>
 <div class="col-md-12">
     <!-- Success box -->
     <div class="box box-success">
