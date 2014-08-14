@@ -140,11 +140,12 @@ class user extends MY_Controller {
                     $form['password'] = sha1($form['password']);
                 }
 
+                unset($form['type']);
+
                 $form['name'] = $this->encrypt($form['name']);
                 $form['email'] = $this->encrypt($form['email']);
                 $form['mobile'] = $this->encrypt($form['mobile']);
                 $form['phone'] = $this->encrypt($form['phone']);
-                $form['type'] = $this->encrypt($form['type']);
                 $this->user_model->updateUserById($form, $id);
                 redirect("/user/listUsers");
             }

@@ -1,21 +1,8 @@
-<style>
-
-
-
-</style>
-<?php //print_r($user); ?>
-<div class="col-md-12">
-    <!-- Success box -->
-    <div class="box box-success">
-        <div class="box-header">
-            <h3 class="box-title">Edit User</h3>
-        </div>
-    </div><!-- /.box -->
-</div>
 <div class="col-md-6">
     <!-- Success box -->
     <div class="box box-success">
         <div class="box-header">
+            <h3 class="box-title">Edit User</h3>
             <?php echo validation_errors(); ?>
         </div>
         <div class="box-body">
