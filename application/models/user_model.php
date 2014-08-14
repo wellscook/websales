@@ -67,4 +67,10 @@ class user_model extends CI_Model {
         return $data;
     }
 
+    public function updateUserById($data, $id) {
+
+        $this->db->where('ID', $id);
+        $this->db->update("user", $data);
+    }
+
 }

@@ -122,6 +122,32 @@ class user extends MY_Controller {
         }
         if ($this->is_post()) {
 
+            $this->form_validation->set_rules('name', 'Name', 'required');
+            $this->form_validation->set_rules('email', 'Email', 'required');
+            $this->form_validation->set_rules('phone', 'Phone', 'required');
+            $this->form_validation->set_rules('mobile', 'Mobile', 'required');
+            $this->form_validation->set_rules('username', 'Username', 'required');
+            if ($this->form_validation->run() == FALSE) {
+                $this->layout('user', $format, $eliments_c, $eliments_l, $eliments_r, $data);
+            } else {
+                /* @var $_POST type */
+                $form = $_POST;
+                $password = $this->input->post("password");
+                //if password is not updated or is null then remove the value from the update array.
+                if ($password == null or "") {
+                    unset($form['password']);
+                } else {
+                    $form['password'] = sha1($form['password']);
+                }
+
+                $form['name'] = $this->encrypt($form['name']);
+                $form['email'] = $this->encrypt($form['email']);
+                $form['mobile'] = $this->encrypt($form['mobile']);
+                $form['phone'] = $this->encrypt($form['phone']);
+                $form['type'] = $this->encrypt($form['type']);
+                $this->user_model->updateUserById($form, $id);
+                redirect("/user/listUsers");
+            }
         }
     }
 
