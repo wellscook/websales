@@ -21,17 +21,17 @@
         <div class="box-body">
             <?php echo form_open(""); ?>
             Full Name
-            <input class="form-control input-sm" name="name" id="name" placeholder="Full Name" value=""/>
+            <input class="form-control input-sm" name="name" id="name" placeholder="Full Name" value="<?php echo $user['name'] ?>"/>
             Email Address
-            <input class="form-control input-sm" name="email" id="email" placeholder="Email Address" value=""/>
+            <input class="form-control input-sm" name="email" id="email" placeholder="Email Address" value="<?php echo $user['email'] ?>"/>
             Office Phone
-            <input class="form-control input-sm" name="phone" id="phone" placeholder="Office Phone" value=""/>
+            <input class="form-control input-sm" name="phone" id="phone" placeholder="Office Phone" value="<?php echo $user['phone'] ?>"/>
             Mobile
-            <input class="form-control input-sm" name="mobile" id="mobile" placeholder="Mobile Phone" value=""/>
+            <input class="form-control input-sm" name="mobile" id="mobile" placeholder="Mobile Phone" value="<?php echo $user['mobile'] ?>"/>
             Password
             <input type="password" class="form-control input-sm" name="password" id="password" placeholder="password" value=""/>
             Username
-            <input class="form-control input-sm" name="username" id="username" placeholder="Username" value=""/>
+            <input class="form-control input-sm" name="username" id="username" placeholder="Username" value="<?php echo $user['username'] ?>"/>
             <br>
             <button type='submit' class='btn btn-sm btn-success'>Save</button>
             </form>
