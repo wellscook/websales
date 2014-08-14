@@ -13,6 +13,7 @@ class customer extends MY_Controller {
             redirect("/login/index");
         }
         $this->load->model("user_model");
+        $this->load->model("customer_model");
     }
 
     public function index() {
@@ -21,6 +22,8 @@ class customer extends MY_Controller {
 
     public function listClients() {
         $data = array();
+
+
         $format = "12"; //format = 12 or 6
         $eliments_l = "";
         $eliments_r = "";
