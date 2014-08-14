@@ -11,3 +11,4 @@ Database Schema can be found in the Folder MYSQL.
 //User Area has now been created and is fully operational.
 
 To change the Skin used change the body class name. found in applications/views/default/head.php line 37
+Current skins (LTE LITE) Blue - skin-blue and Black skin-black, skins created by us skin-orange, skin-green, skin-pink and skin-red
