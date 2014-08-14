@@ -112,6 +112,12 @@ class user extends MY_Controller {
         $eliments_c = "edituser";
 
         if ($this->is_get()) {
+
+            $data['user']['name'] = $this->decrypt($data['user']['name']);
+            $data['user']['email'] = $this->decrypt($data['user']['email']);
+            $data['user']['phone'] = $this->decrypt($data['user']['phone']);
+            $data['user']['mobile'] = $this->decrypt($data['user']['mobile']);
+
             $this->layout('user', $format, $eliments_c, $eliments_l, $eliments_r, $data);
         }
         if ($this->is_post()) {
