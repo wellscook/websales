@@ -19,4 +19,38 @@ class customer extends MY_Controller {
 
     }
 
+    public function listClients() {
+        $data = array();
+        $format = "12"; //format = 12 or 6
+        $eliments_l = "";
+        $eliments_r = "";
+        $eliments_c = "list";
+
+        $this->layout('user', $format, $eliments_c, $eliments_l, $eliments_r, $data);
+    }
+
+    public function createClient() {
+        $data = array();
+        $format = "12"; //format = 12 or 6
+        $eliments_l = "";
+        $eliments_r = "";
+        $eliments_c = "create";
+
+        $this->layout('user', $format, $eliments_c, $eliments_l, $eliments_r, $data);
+    }
+
+    public function editClient() {
+        $data = array();
+        $format = "12"; //format = 12 or 6
+        $eliments_l = "";
+        $eliments_r = "";
+        $eliments_c = "edit";
+
+        $this->layout('user', $format, $eliments_c, $eliments_l, $eliments_r, $data);
+    }
+
+    public function deleteClient() {
+
+    }
+
 }
