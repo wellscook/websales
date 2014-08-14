@@ -11,4 +11,16 @@ class customer_model extends CI_Model {
         $this->load->database();
     }
 
+    public function createClient() {
+        $this->db->insert("customer", $data);
+    }
+
+    public function deleteClient() {
+
+    }
+
+    public function getAllClients() {
+
+    }
+
 }

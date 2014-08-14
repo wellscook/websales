@@ -29,7 +29,7 @@ class customer extends MY_Controller {
         $eliments_r = "";
         $eliments_c = "list";
 
-        $this->layout('user', $format, $eliments_c, $eliments_l, $eliments_r, $data);
+        $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
     }
 
     public function createClient() {
@@ -39,7 +39,7 @@ class customer extends MY_Controller {
         $eliments_r = "";
         $eliments_c = "create";
 
-        $this->layout('user', $format, $eliments_c, $eliments_l, $eliments_r, $data);
+        $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
     }
 
     public function editClient() {
@@ -49,7 +49,7 @@ class customer extends MY_Controller {
         $eliments_r = "";
         $eliments_c = "edit";
 
-        $this->layout('user', $format, $eliments_c, $eliments_l, $eliments_r, $data);
+        $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
     }
 
     public function deleteClient() {

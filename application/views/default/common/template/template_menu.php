@@ -22,7 +22,7 @@
             </li>
 
             <li class="active">
-                <a href="/dashboard">
+                <a href="/customer/listClients">
                     <i class="fa fa-users"></i> <span>Customers</span>
                 </a>
             </li>
