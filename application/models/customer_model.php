@@ -20,7 +20,11 @@ class customer_model extends CI_Model {
     }
 
     public function getAllClients() {
-
+        $this->db->select("*");
+        $this->db->from("customer");
+        $query = $this->db->get();
+        $data = $query->result_array();
+        return $data;
     }
 
 }

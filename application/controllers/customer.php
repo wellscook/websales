@@ -22,13 +22,11 @@ class customer extends MY_Controller {
 
     public function listClients() {
         $data = array();
-
-
+        $data['customers'] = $this->customer_model->getAllClients();
         $format = "12"; //format = 12 or 6
         $eliments_l = "";
         $eliments_r = "";
         $eliments_c = "list";
-
         $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
     }
 
