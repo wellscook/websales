@@ -50,18 +50,33 @@ class customer extends MY_Controller {
                 $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
             } else {
                 $data = $_POST;
+
+                $this->customer_model->createClient($data);
+
+                redirect("/customer/listClients");
             }
         }
     }
 
-    public function editClient() {
+    public function editClient($id) {
         $data = array();
+
         $format = "12"; //format = 12 or 6
         $eliments_l = "";
         $eliments_r = "";
         $eliments_c = "edit";
 
-        $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
+        if ($this->is_get()) {
+            $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
+        }
+
+        if ($this->is_post()) {
+            if ($this->form_validation->run() == FALSE) {
+                $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
+            } else {
+                $data = $_POST;
+            }
+        }
     }
 
     public function deleteClient() {
