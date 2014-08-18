@@ -38,25 +38,23 @@ class customer extends MY_Controller {
         $eliments_r = "";
         $eliments_c = "create";
 
-        $this->form_validation->set_rules('title', '', 'required');
-        $this->form_validation->set_rules('fistname', '', 'required');
-        $this->form_validation->set_rules('surname', '', 'required');
-        $this->form_validation->set_rules('emailaddress', '', 'required');
-        $this->form_validation->set_rules('phone', '', 'required');
-        $this->form_validation->set_rules('mobile', '', 'required');
-        $this->form_validation->set_rules('work', '', 'required');
-        $this->form_validation->set_rules('addressl1', '', 'required');
-        $this->form_validation->set_rules('addressl2', '', 'required');
-        $this->form_validation->set_rules('town', '', 'required');
-        $this->form_validation->set_rules('city', '', 'required');
-        $this->form_validation->set_rules('postcode', '', 'required');
-        $this->form_validation->set_rules('password', '', 'required');
-        $this->form_validation->set_rules('budget', '', 'required');
-        $this->form_validation->set_rules('deposit', '', 'required');
-        $this->form_validation->set_rules('assigneduser', '', 'required');
-        $this->form_validation->set_rules('enquirysource', '', 'required');
-        $this->form_validation->set_rules('enquirytype', '', 'required');
-        $this->form_validation->set_rules('enquiryproduct', '', 'required');
+        $this->form_validation->set_rules('title', 'Title', 'required');
+        $this->form_validation->set_rules('fistname', 'First Name', 'required');
+        $this->form_validation->set_rules('surname', 'Surname', 'required');
+        $this->form_validation->set_rules('emailaddress', 'Email Address', 'required');
+        $this->form_validation->set_rules('phone', 'Phone', 'required');
+        $this->form_validation->set_rules('mobile', 'Mobile', 'required');
+        $this->form_validation->set_rules('work', 'Work', 'required');
+        $this->form_validation->set_rules('addressl1', 'Address Line 1', 'required');
+        $this->form_validation->set_rules('addressl2', 'Address Line 2', 'required');
+        $this->form_validation->set_rules('town', 'Town', 'required');
+        $this->form_validation->set_rules('city', 'City', 'required');
+        $this->form_validation->set_rules('postcode', 'Postcode', 'required');
+        $this->form_validation->set_rules('budget', 'Budget', 'required');
+        $this->form_validation->set_rules('deposit', 'Deposit', 'required');
+        $this->form_validation->set_rules('enquirysource', 'Enquiry Source', 'required');
+        $this->form_validation->set_rules('enquirytype', 'Enquiry Type', 'required');
+        $this->form_validation->set_rules('enquiryproduct', 'Enquiry Product', 'required');
 
         if ($this->is_get()) {
             $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
