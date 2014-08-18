@@ -36,11 +36,17 @@
             Deposit
             <input class="form-control input-sm" name="deposit" id="deposit" placeholder="Deposit"/>
             Enquiry Source
-
+            <select class="form-control input-sm" name="" id="">
+                <option value="">Please Select</option>
+            </select>
             Enquiry Type
-
+            <select class="form-control input-sm" name="" id="">
+                <option value="">Please Select</option>
+            </select>
             Enquiry Product
-
+            <select class="form-control input-sm" name="" id="">
+                <option value="">Please Select</option>
+            </select>
 
             <button type='submit' class='btn btn-sm btn-success'>Save</button>
             </form>
