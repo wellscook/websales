@@ -32,12 +32,26 @@ class customer extends MY_Controller {
 
     public function createClient() {
         $data = array();
+
         $format = "12"; //format = 12 or 6
         $eliments_l = "";
         $eliments_r = "";
         $eliments_c = "create";
 
-        $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
+        $this->form_validation->set_rules('', '', 'required');
+        $this->form_validation->set_rules('', '', 'required');
+        $this->form_validation->set_rules('', '', 'required');
+
+        if ($this->is_get()) {
+            $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
+        }
+        if ($this->is_post()) {
+            if ($this->form_validation->run() == FALSE) {
+                $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
+            } else {
+                $data = $_POST;
+            }
+        }
     }
 
     public function editClient() {
