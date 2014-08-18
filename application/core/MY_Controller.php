@@ -77,4 +77,12 @@ class MY_Controller extends CI_Controller {
         }
     }
 
+    public function checkID($id) {
+        if (is_int($id)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

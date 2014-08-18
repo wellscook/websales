@@ -61,6 +61,11 @@ class customer extends MY_Controller {
     public function editClient($id) {
         $data = array();
 
+        $is_int = $this->checkID();
+        if ($is_int == false) {
+            redirect("/customer/listClients");
+        }
+
         $format = "12"; //format = 12 or 6
         $eliments_l = "";
         $eliments_r = "";
@@ -69,12 +74,13 @@ class customer extends MY_Controller {
         if ($this->is_get()) {
             $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
         }
-
         if ($this->is_post()) {
             if ($this->form_validation->run() == FALSE) {
                 $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
             } else {
                 $data = $_POST;
+
+                $this->customer_model->updateClient();
             }
         }
     }
