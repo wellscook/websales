@@ -15,10 +15,6 @@ class customer_model extends CI_Model {
         $this->db->insert("customer", $data);
     }
 
-    public function deleteClient() {
-
-    }
-
     public function getAllClients() {
         $this->db->select("*");
         $this->db->from("customer");
@@ -34,6 +30,15 @@ class customer_model extends CI_Model {
         $query = $this->db->get();
         $data = $query->row_array();
         return $data;
+    }
+
+    public function updateClient($data, $id) {
+        $this->db->where('ID', $id);
+        $this->db->update("customer", $data);
+    }
+
+    public function deleteClient($id) {
+        $this->db->delete('customer', array('ID' => $id));
     }
 
 }

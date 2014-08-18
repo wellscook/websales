@@ -172,8 +172,10 @@ class customer extends MY_Controller {
         }
     }
 
-    public function deleteClient() {
+    public function deleteClient($id) {
+        $this->customer_model->deleteClient($id);
 
+        redirect("/customer/listClients");
     }
 
 }
