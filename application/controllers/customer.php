@@ -61,7 +61,7 @@ class customer extends MY_Controller {
     public function editClient($id) {
         $data = array();
 
-        $is_int = $this->checkID();
+        $is_int = $this->checkID($id);
         if ($is_int == false) {
             redirect("/customer/listClients");
         }
@@ -81,6 +81,8 @@ class customer extends MY_Controller {
                 $data = $_POST;
 
                 $this->customer_model->updateClient();
+
+                redirect("/customer/listClients");
             }
         }
     }
