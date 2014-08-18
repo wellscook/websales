@@ -38,9 +38,25 @@ class customer extends MY_Controller {
         $eliments_r = "";
         $eliments_c = "create";
 
-        $this->form_validation->set_rules('', '', 'required');
-        $this->form_validation->set_rules('', '', 'required');
-        $this->form_validation->set_rules('', '', 'required');
+        $this->form_validation->set_rules('title', '', 'required');
+        $this->form_validation->set_rules('fistname', '', 'required');
+        $this->form_validation->set_rules('surname', '', 'required');
+        $this->form_validation->set_rules('emailaddress', '', 'required');
+        $this->form_validation->set_rules('phone', '', 'required');
+        $this->form_validation->set_rules('mobile', '', 'required');
+        $this->form_validation->set_rules('work', '', 'required');
+        $this->form_validation->set_rules('addressl1', '', 'required');
+        $this->form_validation->set_rules('addressl2', '', 'required');
+        $this->form_validation->set_rules('town', '', 'required');
+        $this->form_validation->set_rules('city', '', 'required');
+        $this->form_validation->set_rules('postcode', '', 'required');
+        $this->form_validation->set_rules('password', '', 'required');
+        $this->form_validation->set_rules('budget', '', 'required');
+        $this->form_validation->set_rules('deposit', '', 'required');
+        $this->form_validation->set_rules('assigneduser', '', 'required');
+        $this->form_validation->set_rules('enquirysource', '', 'required');
+        $this->form_validation->set_rules('enquirytype', '', 'required');
+        $this->form_validation->set_rules('enquiryproduct', '', 'required');
 
         if ($this->is_get()) {
             $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
@@ -49,7 +65,30 @@ class customer extends MY_Controller {
             if ($this->form_validation->run() == FALSE) {
                 $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
             } else {
-                $data = $_POST;
+                $form = $_POST;
+
+                $data = array(
+                    "title" => $this->encrypt($form['title']),
+                    "firstname" => $this->encrypt($form['firstname']),
+                    "surname" => $this->encrypt($form['surname']),
+                    "emailaddress" => $this->encrypt($form['emailaddress']),
+                    "phone" => $this->encrypt($form['phone']),
+                    "mobile" => $this->encrypt($form['mobile']),
+                    "work" => $this->encrypt($form['work']),
+                    "addressl1" => $this->encrypt($form['addressl1']),
+                    "addressl2" => $this->encrypt($form['addressl2']),
+                    "town" => $this->encrypt($form['town']),
+                    "city" => $this->encrypt($form['city']),
+                    "postcode" => $this->encrypt($form['postcode']),
+                    "password" => sha1($form['password']),
+                    "budget" => $this->encrypt($form['budget']),
+                    "deposit" => $this->encrypt($form['deposit']),
+                    "assigneduser" => $this->session->userdata('id'),
+                    "status" => "0",
+                    "enquirysource" => $this->encrypt($form['enquirysource']),
+                    "enquirytype" => $this->encrypt($form['enquirytype']),
+                    "enquiryproduct" => $this->encrypt($form['enquiryproduct']),
+                );
 
                 $this->customer_model->createClient($data);
 
@@ -60,6 +99,31 @@ class customer extends MY_Controller {
 
     public function editClient($id) {
         $data = array();
+
+        $form = $this->customer_model->getClientByID($id);
+
+        $data['client'] = array(
+            "title" => $this->decrypt($form['title']),
+            "firstname" => $this->decrypt($form['firstname']),
+            "surname" => $this->decrypt($form['surname']),
+            "emailaddress" => $this->decrypt($form['emailaddress']),
+            "phone" => $this->decrypt($form['phone']),
+            "mobile" => $this->decrypt($form['mobile']),
+            "work" => $this->decrypt($form['work']),
+            "addressl1" => $this->decrypt($form['addressl1']),
+            "addressl2" => $this->decrypt($form['addressl2']),
+            "town" => $this->decrypt($form['town']),
+            "city" => $this->decrypt($form['city']),
+            "postcode" => $this->decrypt($form['postcode']),
+            "password" => sha1($form['password']),
+            "budget" => $this->decrypt($form['budget']),
+            "deposit" => $this->decrypt($form['deposit']),
+            "assigneduser" => $form['assigneduser'],
+            "status" => $form['status'],
+            "enquirysource" => $this->decrypt($form['enquirysource']),
+            "enquirytype" => $this->decrypt($form['enquirytype']),
+            "enquiryproduct" => $this->decrypt($form['enquiryproduct']),
+        );
 
         $is_int = $this->checkID($id);
         if ($is_int == false) {
@@ -78,9 +142,32 @@ class customer extends MY_Controller {
             if ($this->form_validation->run() == FALSE) {
                 $this->layout('customer', $format, $eliments_c, $eliments_l, $eliments_r, $data);
             } else {
-                $data = $_POST;
+                $form = $_POST;
 
-                $this->customer_model->updateClient();
+                $data = array(
+                    "title" => $this->encrypt($form['title']),
+                    "firstname" => $this->encrypt($form['firstname']),
+                    "surname" => $this->encrypt($form['surname']),
+                    "emailaddress" => $this->encrypt($form['emailaddress']),
+                    "phone" => $this->encrypt($form['phone']),
+                    "mobile" => $this->encrypt($form['mobile']),
+                    "work" => $this->encrypt($form['work']),
+                    "addressl1" => $this->encrypt($form['addressl1']),
+                    "addressl2" => $this->encrypt($form['addressl2']),
+                    "town" => $this->encrypt($form['town']),
+                    "city" => $this->encrypt($form['city']),
+                    "postcode" => $this->encrypt($form['postcode']),
+                    "password" => sha1($form['password']),
+                    "budget" => $this->encrypt($form['budget']),
+                    "deposit" => $this->encrypt($form['deposit']),
+                    "assigneduser" => $form['assigneduser'],
+                    "status" => $form['status'],
+                    "enquirysource" => $this->encrypt($form['enquirysource']),
+                    "enquirytype" => $this->encrypt($form['enquirytype']),
+                    "enquiryproduct" => $this->encrypt($form['enquiryproduct']),
+                );
+
+                $this->customer_model->updateClient($data, $id);
 
                 redirect("/customer/listClients");
             }
